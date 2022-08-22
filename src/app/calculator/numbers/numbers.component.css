@@ -1,0 +1,10 @@
+:host {
+  display: inline;
+}
+
+div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}

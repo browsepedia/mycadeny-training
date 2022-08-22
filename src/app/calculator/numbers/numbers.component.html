@@ -1,0 +1,10 @@
+<div>
+  <button
+    mat-flat-button
+    color="primary"
+    *ngFor="let number of numbers"
+    (click)="onNumberClick(number)"
+  >
+    {{ number }}
+  </button>
+</div>
