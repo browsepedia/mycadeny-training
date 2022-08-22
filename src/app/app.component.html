@@ -3,3 +3,14 @@
 <app-calculator [numbers]="numbers"></app-calculator>
 
 <button mat-flat-button color="warn" (click)="randomize()">Randomize</button>
+
+<app-rxjs-playground></app-rxjs-playground>
+
+
+<button (click)="refreshUsers()">Refresh Users</button>
+
+<ul>
+  <li *ngFor="let user of users$ | async">
+    {{ user.name }}
+  </li>
+</ul>

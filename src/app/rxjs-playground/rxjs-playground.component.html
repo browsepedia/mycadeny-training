@@ -1,0 +1,8 @@
+rxjs playground
+<input (input)="onFilterChange($any($event.target).value || '')" />
+
+<ul>
+  <li *ngFor="let user of filteredUsers">
+    {{ user.name }}
+  </li>
+</ul>
