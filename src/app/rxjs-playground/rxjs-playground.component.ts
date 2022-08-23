@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
   combineLatest,
   delay,
@@ -9,6 +9,7 @@ import {
   interval,
   map,
   of,
+  Subscription,
   take,
   tap,
 } from 'rxjs';
@@ -19,22 +20,14 @@ import { User } from '../app.component';
   templateUrl: './rxjs-playground.component.html',
   styleUrls: ['./rxjs-playground.component.scss'],
 })
-export class RxjsPlaygroundComponent {
+export class RxjsPlaygroundComponent implements OnDestroy {
   constructor(private _http: HttpClient) {
-    const users$ = _http
-      .get<User[]>('https://jsonplaceholder.typicode.com/users')
-      .subscribe((users) => {
-        this.users = users;
-        this.filteredUsers = users;
-      });
+    this._sub = interval(1000).subscribe(console.log);
   }
 
-  public users: User[] = [];
-  public filteredUsers: User[] = [];
+  private _sub: Subscription;
 
-  onFilterChange(filter: string): void {
-    this.filteredUsers = this.users.filter((user) =>
-      user.name.toLowerCase().includes(filter)
-    );
+  ngOnDestroy(): void {
+    this._sub.unsubscribe();
   }
 }
