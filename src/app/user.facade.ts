@@ -52,8 +52,8 @@ export class UserFacade {
       .pipe(map((users: User[] | null) => users || []));
   }
 
-  public setUsers(): void {
-    this._users$.next([]);
+  public fetchUserDetails(userId: number): Observable<User> {
+    return this._userService.fetchUser(userId);
   }
 
   public fetchUsersIfNotPresent$: Observable<User[]>;

@@ -1,7 +1,43 @@
-<p>user-details works!</p>
-
-UserId is: {{ userId$ | async }}
-
-<button (click)="editNextUser()">Edit next user</button>
-
 <router-outlet></router-outlet>
+
+<form class="user-form-container" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Type name" />
+    <mat-error>Required</mat-error>
+  </mat-form-field>
+
+  {{ form.controls["name"].errors | json }}
+
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input formControlName="username" matInput placeholder="Type username" />
+    <mat-error>Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Type email" />
+    <mat-error *ngIf="$any(form.controls['email']?.errors)?.required"
+      >Required</mat-error
+    >
+    <mat-error *ngIf="$any(form.controls['email']?.errors)?.email"
+      >Must be an email address.</mat-error
+    >
+  </mat-form-field>
+
+  <ng-container [formGroup]="form.controls['minMax']">
+    <mat-form-field>
+      <mat-label>Min</mat-label>
+      <input type="number" matInput formControlName="min" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Max</mat-label>
+      <input type="number" matInput formControlName="max" />
+    </mat-form-field>
+  </ng-container>
+
+  {{ form.controls["minMax"].errors | json }}
+  <button color="primary" mat-flat-button (click)="logName()">Submit</button>
+</form>

@@ -1,3 +1,8 @@
-<app-layout [appTitle]="''"></app-layout>
+<app-layout [appTitle]="''">
+  <div header>Header is projected</div>
 
-<router-outlet></router-outlet>
+  <ng-container>
+    <span> Content is projected </span>
+    <router-outlet></router-outlet>
+  </ng-container>
+</app-layout>

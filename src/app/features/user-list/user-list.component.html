@@ -1,7 +1,17 @@
-<ul>
-  <li *ngFor="let user of users$ | async">
-    {{ user.email }}
+<mat-list>
+  <ng-container *ngFor="let user of users$ | async">
+    <mat-list-item>
+      <div class="user-list-item">
+        <span>
+          {{ user.email }}
+        </span>
 
-    <button (click)="editUser(user)">Edit</button>
-  </li>
-</ul>
+        <button color="primary" mat-icon-button (click)="editUser(user)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>

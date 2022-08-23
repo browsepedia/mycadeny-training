@@ -1,4 +1,8 @@
-<app-header
-  [appTitle]="appTitle"
-  (alertClick)="onAlertClick($event)"
-></app-header>
+<app-header [appTitle]="appTitle" (alertClick)="onAlertClick($event)">
+</app-header>
+
+<ng-content select="[header]"></ng-content>
+
+<div class="main-layout-container">
+  <ng-content></ng-content>
+</div>
