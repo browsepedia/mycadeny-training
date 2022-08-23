@@ -1,7 +1,3 @@
-<app-layout [appTitle]="appTitle"></app-layout>
+<app-layout [appTitle]="''"></app-layout>
 
-<app-calculator [numbers]="numbers"></app-calculator>
-
-<button #button (click)="pushToNumbers()">Push to subject</button>
-
-{{ button | json }}
+<router-outlet></router-outlet>

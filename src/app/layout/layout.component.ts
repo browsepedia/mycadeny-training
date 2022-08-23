@@ -14,12 +14,9 @@ import { AppService } from '../app.service';
   providers: [AppService],
 })
 export class LayoutComponent {
-  constructor(_service: AppService) {
-    console.log(_service);
-  }
+  constructor(_service: AppService) {}
 
   @Input() public set appTitle(appTitle: string) {
-    console.log(appTitle);
     this._appTitle = appTitle;
   }
 

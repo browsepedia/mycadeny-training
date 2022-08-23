@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let user of users$ | async">
+    {{ user.email }}
+
+    <button (click)="editUser(user)">Edit</button>
+  </li>
+</ul>

@@ -18,9 +18,8 @@ import { ResultComponent } from './result/result.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalculatorComponent implements OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
+
   @Input() public numbers: number[] = [];
 
   protected selectedNumber: number | undefined = undefined;

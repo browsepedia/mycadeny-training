@@ -10,12 +10,11 @@ import { AppService } from './app.service';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { CalculatorComponent } from './calculator/calculator.component';
-import { RxjsPlaygroundComponent } from './rxjs-playground/rxjs-playground.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, ShowDoublePipe, RxjsPlaygroundComponent],
+  declarations: [AppComponent, ShowDoublePipe],
   imports: [
     MatButtonModule,
     HttpClientModule,
